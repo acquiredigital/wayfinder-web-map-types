@@ -1,0 +1,226 @@
+declare namespace Wayfinder {
+  type RGB = {r: number; g: number; b: number};
+  type RGBA = {r: number; g: number; b: number; a: number};
+
+  /**
+   * These strings contain default colour states for any mesh associated with this destination (in #rrggbb format).
+   * These can be `null`.
+   */
+  interface Colors {
+    normal: string | null;
+    active: string | null;
+    selected: string | null;
+  }
+
+  interface Coordinates {
+    x: number;
+    y: number;
+    z: number;
+  }
+
+  /**
+   * Wayfinder class
+   * @link https://doc.clickup.com/2561453/d/h/2e5dd-10408/789ef7bcbcc6c38/2e5dd-19368
+   */
+  export class Wayfinder extends HTMLElement {
+    /** A string with the current version */
+    static BuildVersion: string;
+    /** When this was created, in dd/mm/yyyy format */
+    static BuildDate: string;
+
+    /** Integer value to use with the {@link getFloorBounds()} function */
+    static BoundaryTypeFloorActiveArea: 0;
+    /** Integer value to use with the {@link getFloorBounds()} function */
+    static BoundaryTypeFloorArea: 1;
+    /** Integer value to use with the {@link getFloorBounds()} function */
+    static BoundaryTypeEntireRoute: 2;
+    /** Integer value to use with the {@link getFloorBounds()} function */
+    static BoundaryTypeRouteLeg: 3;
+
+    /** Converts multiple types of colour input into a standard object containing `r`, `g`, `b` and a properties that have a range between 0 and 255. */
+    static GetRGB(color: string): RGBA;
+    /** Converts an object with properties `r`, `g` and `b`, into hex notatation suitable for use with CSS. */
+    static RGB2Hex({r, g, b}: RGB): string;
+    /** Converts a url of the form wayfinderstorager.blob.core.windows.net to cdn.wayfinder.acquiredigital.com */
+    static ToCDN(url: string): string;
+
+    /** The current rotational angle of the map in degrees. */
+    get angle(): number;
+    set angle(value: number);
+
+    /**
+     * Pans and zooms the map such that the map coordinates provided fit within the display.
+     *
+     * @param bounds A {@link Bounds} object describing the region
+     * @param angle The rotational angle of the map to spin to. Defaults to `null`
+     * @param tilt The tilt of the map to use. Defaults to `null`
+     * @param animate If the function should smoothly animate to these bounds or not. Defaults to `false`
+     * @returns A promise on completion.
+     */
+    animateToBounds(
+      bounds: Bounds,
+      angle?: number | null,
+      tilt?: number | null,
+      animate?: boolean
+    ): Promise<void>;
+
+    /** Clears and removes any active route */
+    clearRoute(): void;
+
+    /** Provides access to the {@link Database} object */
+    get database(): Database;
+
+    /** Returns the current floor ID */
+    get floorId(): Floor['id'];
+
+    /**
+     * Returns a {@link Bounds} object that describes the minimum and maximum coordinates of the map, where
+     *
+     * @param floorId The floor to get bounds from
+     * @param type Can be one of:
+     * - {@link BoundaryTypeFloorActiveArea}
+     * - {@link BoundaryTypeFloorArea}
+     * - {@link BoundaryTypeEntireRoute}
+     * - {@link BoundaryTypeRouteLeg}
+     * Default is {@link BoundaryTypeFloorActiveArea}
+     * @param leg If type is set to {@link BoundaryTypeRouteLeg} then this allows you to extract the bounds of a specific part of a route.
+     * This is only useful if following a route leads to another map, and then back to this one.
+     * Default is `0`
+     */
+    getFloorBounds(
+      floorId: Floor['id'],
+      type?: 0 | 1 | 2 | 3,
+      leg?: number
+    ): Bounds | null;
+
+    /** Boolean indicating whether the database data has finished loading. */
+    get loaded(): boolean;
+
+    /**
+     * Loads and sets up the map from the api key string provided.
+     * @param key The api key to use
+     * @returns A promise that resolves when the map is loaded
+     */
+    loadFromApiKey(key: string): Promise<void>;
+    /**
+     * Loads and sets up the map from jsonData object.
+     * This is in the format generated via the Wayfinder CMS.
+     * @returns A promise that resolves when the map is loaded
+     */
+    loadFromJSON(jsonData: unknown): Promise<void>;
+
+    /**
+     * Moves the center of the map to a new position
+     *
+     * @param position The new position to move/pan to.
+     * Position is an object with `x`, `y` and `z` properties, although the `y` property is not used.
+     * @param animate If true then the map moves over a small interval as oppose to instantly moving there.
+     * Defaults to `true`
+     * @returns A promise for completion or error.
+     */
+    panTo(position: Coordinates, animate?: boolean): Promise<void>;
+
+    /** The position of the map on screen. */
+    get position(): Coordinates;
+    set position(value: Coordinates);
+
+    /** Boolean indicating whether all background assets have finished loading.  */
+    get ready(): boolean;
+
+    /**
+     * The map only re-renders if something changes.
+     * This will cause a re-draw of the map.
+     */
+    redraw(): void;
+
+    /** Restores all meshes and icons back to their default non-selected state */
+    resetSelection(): void;
+
+    /** The HTML element passed into the constructor */
+    get rootDIV(): HTMLElement;
+
+    /**
+     * Requests a route to be generated
+     * @param startId The ID of a node to start from
+     * @param endIds An array of target node IDs. The nearest one will be the route returned.
+     * @param useDDA If true makes the routing engine generate more accessible routes.
+     * @returns A promise for success/failure
+     */
+    routeBetween(
+      startId: Node['id'],
+      endIds: Node['id'][],
+      useDDA: boolean
+    ): Promise<{
+      status: any; //TODO: What type?
+      waypoints: any[]; //TODO: What type?
+    }>;
+
+    /**
+     * Changes the display type.
+     *
+     * @param perspectiveView
+     *  - `true` for perspective view
+     *  - `false` for orthographic view
+     */
+    setViewMode(perspectiveView: boolean): void;
+
+    /**
+     * Switches the map to a different map
+     * @param floorId The map to change to
+     * @param animate If an animation should occur for the transition (not currently implemented). Default is `false`
+     * @param waitForLoad If the map is not currently loaded then the function will wait for this. Default is `true`
+     */
+    showFloor(
+      floorId: Floor['id'],
+      animate?: boolean,
+      waitForLoad?: boolean
+    ): Promise<void>;
+
+    /** Returns the current map size in pixels */
+    get size(): {width: number; height: number};
+
+    /** Allows access to the {@link Settings} object */
+    get settings(): Settings;
+
+    /** The current elevation angle of the map in degrees between `30` and `90`, where `90` is top-down */
+    get tilt(): number;
+    set tilt(value: number);
+
+    /**
+     * Zooms the map in or out.
+     * @param delta A negative value causes zoom out by 10%. A positive value causes zoom in by 10%.
+     */
+    zoomBy(delta: number): void;
+
+    /**
+     * The current zoom level of the map.
+     * Between 0 and 100
+     * - `0` is fully zoomed out
+     * - `100` is fully zoomed in
+     */
+    get zoomLevel(): number;
+    set zoomLevel(value: number);
+
+    // The Wayfinder class exposes the usual addEventListener, and removeEventListener so that you can subscribe to events at the ‘root’ level.
+    addEventListener<K extends keyof WayfinderEventMap>(
+      type: K,
+      listener: (this: Wayfinder, ev: WayfinderEventMap[K]) => any,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    addEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | AddEventListenerOptions
+    ): void;
+    removeEventListener<K extends keyof WayfinderEventMap>(
+      type: K,
+      listener: (this: Wayfinder, ev: WayfinderEventMap[K]) => any,
+      options?: boolean | EventListenerOptions
+    ): void;
+    removeEventListener(
+      type: string,
+      listener: EventListenerOrEventListenerObject,
+      options?: boolean | EventListenerOptions
+    ): void;
+  }
+}

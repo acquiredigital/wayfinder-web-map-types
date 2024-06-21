@@ -1,0 +1,21 @@
+{
+  "name": "wayfinder-web-map-types",
+  "version": "1.0.0",
+  "description": "Type defintions for the Wayfinder Web Map API",
+  "types": "./types/**/*.d.ts",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/acquiredigital/wayfinder-web-map-types.git"
+  },
+  "keywords": [
+    "Typescript",
+    "Wayfinder",
+    "Web Map"
+  ],
+  "bugs": {
+    "url": "https://github.com/acquiredigital/wayfinder-web-map-types/issues"
+  },
+  "homepage": "https://github.com/acquiredigital/wayfinder-web-map-types#readme"
+}
