@@ -62,6 +62,8 @@ export interface Destination {
   readonly destination_photo: string;
   /** A function that causes the mesh to change to its default colour over `speed` milliseconds. */
   fadeToDefault(speed: number): void;
+  /** A function that causes the mesh to change to its hover colour over `speed` milliseconds. */
+  fadeToHover(speed: number): void;
   /** A function that causes the mesh to change to its selected colour over `speed` milliseconds. */
   fadeToSelected(speed: number): void;
   /**
