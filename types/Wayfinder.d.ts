@@ -10,7 +10,7 @@ import type { WayfinderEventMap } from "./Events";
  * Wayfinder class
  * @link https://doc.clickup.com/2561453/d/h/2e5dd-10408/789ef7bcbcc6c38/2e5dd-19368
  */
-export class Wayfinder extends HTMLElement {
+export class Wayfinder extends EventTarget {
   /** A string with the current version */
   static BuildVersion: string;
   /** When this was created, in dd/mm/yyyy format */
