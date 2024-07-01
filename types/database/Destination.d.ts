@@ -34,7 +34,7 @@ export type OpeningHours = Readonly<{
   mon: OpeningHour;
   tue: OpeningHour;
   wed: OpeningHour;
-  thu: OpeningHour;
+  thur: OpeningHour;
   fri: OpeningHour;
   sat: OpeningHour;
   sun: OpeningHour;
