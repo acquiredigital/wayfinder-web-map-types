@@ -25,9 +25,9 @@ export type OpeningHour = Readonly<{
   text: string;
   /** If this entry is valid or not */
   value: number;
-  /** Text containing the opening hour in hh:mm format */
+  /** Text containing the opening hour in HH:mm format */
   oh: string;
-  /** text containing the closing hour in hh:mm format */
+  /** text containing the closing hour in HH:mm format */
   ch: string;
 }>;
 export type OpeningHours = Readonly<{
