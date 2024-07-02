@@ -162,6 +162,9 @@ export class Settings {
   /** The primary map to show */
   get startingFloorId(): number;
 
+  /** The timezone of the destination of the project */
+  get timezone(): string | null;
+
   /** Time taken by default for all animations */
   get transitionTime(): number;
 
