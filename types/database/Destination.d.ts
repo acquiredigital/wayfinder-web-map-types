@@ -74,7 +74,7 @@ export interface Destination {
   /** The ID of the floor/map this destination is on. */
   readonly floor: Floor["id"];
   /** The unique ID for this destination. */
-  readonly id: number;
+  readonly id: string;
   /** Details about how a label should be drawn ontop of the mesh. */
   readonly label: LabelOptions;
   /** A textual description of the surroundings near this destination. */
