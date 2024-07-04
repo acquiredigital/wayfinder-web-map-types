@@ -137,7 +137,7 @@ export class Wayfinder extends EventTarget {
   routeBetween(
     startId: Node["id"],
     endIds: Node["id"][],
-    useDDA: boolean
+    useDDA: 0 | 1
   ): Promise<{
     status: any; //TODO: What type?
     waypoints: any[]; //TODO: What type?
