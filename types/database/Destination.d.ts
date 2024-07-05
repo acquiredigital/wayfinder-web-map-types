@@ -41,11 +41,11 @@ export type OpeningHours = Readonly<{
 }>;
 
 export type RelatedDestination = {
-  id: Destination["id"];
+  id: number;
   name: Destination["name"];
   pivot: {
-    global_destination_id: Destination["id"];
-    related_destination_id: Destination["id"];
+    global_destination_id: number;
+    related_destination_id: number;
   };
 };
 
