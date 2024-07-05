@@ -40,6 +40,15 @@ export type OpeningHours = Readonly<{
   sun: OpeningHour;
 }>;
 
+export type RelatedDestination = {
+  id: Destination["id"];
+  name: Destination["name"];
+  pivot: {
+    global_destination_id: Destination["id"];
+    related_destination_id: Destination["id"];
+  };
+};
+
 // TODO: Which can be null?
 /** @link https://app.clickup.com/2561453/v/dc/2e5dd-10408/2e5dd-19888 */
 export interface Destination {
@@ -101,6 +110,8 @@ export interface Destination {
   readonly parent_destination: Destination | null;
   /** A phone number associated with the destination. */
   readonly phone_number: string;
+  /** An array of manually selected related destinations */
+  get related_destinations(): RelatedDestination[];
   /** Set to true if this is a sub destination. */
   readonly sub_destination: boolean;
   /** An array of sub-destinations contained within this destination */
