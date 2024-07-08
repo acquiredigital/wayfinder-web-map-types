@@ -17,7 +17,7 @@
     "url": "https://github.com/acquiredigital/wayfinder-web-map-types/issues"
   },
   "homepage": "https://github.com/acquiredigital/wayfinder-web-map-types#readme",
-  "devDependencies": {
+  "peerDependencies": {
     "@types/three": "^0.165.0"
   },
   "prettier": {
