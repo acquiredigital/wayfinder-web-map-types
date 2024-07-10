@@ -4,6 +4,7 @@ export * from "./types/Wayfinder";
 // Top level exports
 export * from "./types/Bounds";
 export * from "./types/Database";
+export * from "./types/Events";
 export * from "./types/Overlay";
 export * from "./types/Settings";
 
