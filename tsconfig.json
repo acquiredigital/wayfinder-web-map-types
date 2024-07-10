@@ -1,6 +1,7 @@
 {
   "include": ["types/**/*.d.ts"],
   "compilerOptions": {
+    "verbatimModuleSyntax": true,
     "types": ["@types/three"]
   }
 }
