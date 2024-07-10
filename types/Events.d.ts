@@ -1,6 +1,7 @@
 import type { Floor } from "./database/Floor";
 import type { Amenity } from "./database/Amenities";
 import type { Destination } from "./database/Destination";
+import type { MeshLink } from "./database/MeshLinks";
 import type { TransitNode } from "./database/TransitNodes";
 import type { Intersection } from "three";
 
@@ -15,10 +16,11 @@ type MouseCustomEvent = CustomEvent<{
   button: boolean;
   wheel: null | number;
   meshes: Intersection[];
+  floor: MeshLink["targetFloor"] | null;
 }>;
 
 /**
- * You can subscribe to a variery of events that the wayfinder can generate allowing you to fully integrate with its actions.
+ * You can subscribe to a variety of events that the wayfinder can generate allowing you to fully integrate with its actions.
  * @link https://doc.clickup.com/2561453/d/h/2e5dd-10408/789ef7bcbcc6c38/2e5dd-19328
  */
 export interface WayfinderEventMap {
