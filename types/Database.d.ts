@@ -18,7 +18,7 @@ import type { TravelTypesDatabase } from "./database/TravelTypes";
 export class Database {
   /** Provides access to the {@link AmenitiesDatabase} object which provides details about all of the amenities on every floor/map. */
   get amenities(): AmenitiesDatabase;
-  /** Provides access to the WayfinderAmenityTypeDatabase object which provides details about the types of amenity available and in use. */
+  /** Provides access to the {@link AmenityTypeDatabase} object which provides details about the types of amenity available and in use. */
   get amenityTypes(): AmenityTypesDatabase;
   /** A string containing the current active API key (if in use) */
   get apiKey(): string;
