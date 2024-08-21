@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/acquiredigital/wayfinder-web-map-types#readme",
   "peerDependencies": {
-    "@types/three": "^0.165.0"
+    "@types/three": "0.136.1"
   },
   "prettier": {
     "singleQuote": false,
