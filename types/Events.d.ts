@@ -3,6 +3,7 @@ import type { Amenity } from "./database/Amenities";
 import type { Destination } from "./database/Destination";
 import type { MeshLink } from "./database/MeshLinks";
 import type { TransitNode } from "./database/TransitNodes";
+import type { Overlay } from "./Overlay";
 import type { Intersection } from "three";
 
 /** Triggered when the mouse goes down, moved, lifted up or wheeled on the map */
@@ -13,6 +14,7 @@ type MouseCustomEvent = CustomEvent<{
   destination: Destination | null;
   destinationLabel: Destination | null;
   transit: TransitNode | null; // TODO: Check this means Transit Node
+  transitPopup: Overlay | null;
   button: boolean;
   wheel: null | number;
   meshes: Intersection[];

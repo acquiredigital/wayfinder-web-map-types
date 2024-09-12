@@ -28,3 +28,33 @@ export class Overlay {
    */
   setCurrentColor(color: RGB, shadowColor: RGB, transitionTime: number): void;
 }
+
+export class FloorChangeCallout {
+  static get TickAlignLeft(): 0;
+  static get TickAlignCenter(): 1;
+  static get TickAlignRight(): 2;
+
+  /** Free memory associated with this */
+  release(): void;
+
+  get width(): number;
+
+  get height(): number;
+
+  get hotSpot(): {
+    x: number;
+    y: number;
+  };
+
+  /** Return the last alignment rendered */
+  get alignment(): 0 | 1 | 2;
+
+  get hitBox(): {
+    x: number;
+    y: number;
+    w: number;
+    h: number;
+  };
+
+  get texture(): any;
+}
