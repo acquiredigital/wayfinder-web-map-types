@@ -30,6 +30,9 @@ export class Bounds {
   /** Makes a copy of this object and scales it by the amount supplied. */
   getScaledBox(scale: number): Bounds;
 
+  /** Returns `true` if any of the bounds is infinite */
+  get infinity(): boolean;
+
   /**
    * Returns an object containing the maximum coordinate of the bounding box/cube.
    * The object contains an `x`, `y` and `z` property.
