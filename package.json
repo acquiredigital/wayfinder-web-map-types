@@ -1,9 +1,12 @@
 {
   "name": "wayfinder-web-map-types",
-  "version": "1.1.0",
+  "version": "1.2",
   "description": "Type defintions for the Wayfinder Web Map API",
   "types": "index.d.ts",
-  "scripts": {},
+  "scripts": {
+    "build": "tsc",
+    "format": "prettier -w types/**/*.ts index.d.ts"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/acquiredigital/wayfinder-web-map-types.git"
@@ -19,6 +22,10 @@
   "homepage": "https://github.com/acquiredigital/wayfinder-web-map-types#readme",
   "peerDependencies": {
     "@types/three": "0.136.1"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "typescript": "^5.6.2"
   },
   "prettier": {
     "singleQuote": false,

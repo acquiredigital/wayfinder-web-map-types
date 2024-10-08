@@ -1,6 +1,7 @@
 {
-  "include": ["types/**/*.d.ts"],
+  "include": ["index.d.ts", "types/**/*.d.ts"],
   "compilerOptions": {
+    "target": "es2021",
     "verbatimModuleSyntax": true,
     "types": ["@types/three"]
   }

@@ -4,6 +4,7 @@ export * from "./types/Wayfinder";
 // Top level exports
 export * from "./types/Bounds";
 export * from "./types/Database";
+export * from "./types/DestinationMesh";
 export * from "./types/Events";
 export * from "./types/Overlay";
 export * from "./types/Settings";
@@ -19,3 +20,5 @@ export * from "./types/database/MeshLinks";
 export * from "./types/database/Node";
 export * from "./types/database/TransitNodes";
 export * from "./types/database/TravelTypes";
+
+export as namespace Wayfinder;

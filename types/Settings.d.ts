@@ -146,6 +146,7 @@ type LightingSettings = {
  * @link https://doc.clickup.com/2561453/d/h/2e5dd-10408/789ef7bcbcc6c38/2e5dd-19408
  */
 export class Settings {
+  /** An object containing: `{ color : {r, g, b}, url: '' }` */
   get background(): BackgroundSettings;
 
   /** An object containing the default hover and selected destination colours */
@@ -175,6 +176,9 @@ export class Settings {
   /** Max zoom property (same as kiosk) */
   get maxZoomLevel(): number;
 
+  /** A number to convert coordinates into meters. You should not need to use this */
+  get mapScaleFactor(): number;
+
   /** If shadows will be rendered on the map */
   get renderShadows(): boolean;
 
@@ -183,6 +187,12 @@ export class Settings {
 
   /** Map tilt to use while route is active (default) */
   get routeMapTilt(): number;
+
+  /**
+   * If routes generated are by shortest distance `true` or quickest time `false`.
+   * This can be overridden when requesting a route
+   */
+  get routeByDistance(): boolean;
 
   /** Number fo milliseconds to change map scale while loading (animation) */
   get scaleChangeTime(): number;

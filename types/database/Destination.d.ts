@@ -1,4 +1,5 @@
 import type { Colors, Coordinates } from "../utils";
+import type { DestinationMesh } from "../DestinationMesh";
 import type { DatabaseBase } from "./Base";
 import type {
   DestinationCategory,
@@ -92,6 +93,8 @@ export interface Destination {
   readonly logo: string;
   /** A URL with the logo for the destination for rendering on the top of the mesh. This is only used if flagship=1 */
   readonly map_logo: string;
+  /** Exposes the {@link DestinationMesh} attached to this destination */
+  readonly meshObject: DestinationMesh;
   /** The name of the destination */
   readonly name: string;
   /** An array of nodes inside the destination that can be used during routing */
