@@ -1,6 +1,7 @@
 # Wayfinder Web Map API Type Definitions
 
-This repository includes definition files for the Wayfinder Web Map 2.0 API.
+This repository includes definition files for the Wayfinder Web Map 2.0 API. JsDoc annotations provide intellisense in compatible IDE's.
+![An example of type definitions within a codebase.](example.png)
 
 ## Installation
 
