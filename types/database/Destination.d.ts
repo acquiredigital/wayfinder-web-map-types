@@ -89,6 +89,8 @@ export interface Destination {
   readonly label: LabelOptions;
   /** A textual description of the surroundings near this destination. */
   readonly location_description: string;
+  /** Additional information about the specific instance of a destination. */
+  readonly local_description?: string;
   /** A URL with the logo for this destination, this will be a colour logo. */
   readonly logo: string;
   /** A URL with the logo for the destination for rendering on the top of the mesh. This is only used if flagship=1 */
