@@ -3,8 +3,10 @@ import type { Amenity } from "./database/Amenities";
 import type { Destination } from "./database/Destination";
 import type { MeshLink } from "./database/MeshLinks";
 import type { TransitNode } from "./database/TransitNodes";
-import type { FloorChangeCallout } from "./Overlay";
+import type { Overlay } from "./Overlay";
 import type { Intersection } from "three";
+import type { Node } from "./database/Node";
+import type { TravelType } from "./database/TravelTypes";
 
 /** Triggered when the mouse goes down, moved, lifted up or wheeled on the map */
 type MouseCustomEvent = CustomEvent<{
@@ -14,12 +16,25 @@ type MouseCustomEvent = CustomEvent<{
   destination: Destination | null;
   destinationLabel: Destination | null;
   transit: TransitNode | null; // TODO: Check this means Transit Node
-  transitPopup: FloorChangeCallout | null;
+  transitPopup: TransitPopup | null;
   button: boolean;
   wheel: null | number;
   meshes: Intersection[];
   floor: MeshLink["targetFloor"] | null;
 }>;
+
+type TransitPopup = {
+  follow: () => void;
+  hide: () => void;
+  leg: number;
+  node: Node;
+  overlay: Overlay;
+  panToView: (animate: boolean) => Promise<void>;
+  show: () => void;
+  targetMapId: Floor["id"];
+  text: string;
+  travelType: TravelType;
+};
 
 /**
  * You can subscribe to a variety of events that the wayfinder can generate allowing you to fully integrate with its actions.
