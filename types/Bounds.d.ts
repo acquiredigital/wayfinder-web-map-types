@@ -62,4 +62,7 @@ export class Bounds {
 
   /** Returns an object containing the size of the bounds with properties `x`, `y` and `z`. */
   get size(): Coordinates | null;
+
+  /** Returns `false` if any of the properties are `null` */
+  get valid(): boolean;
 }
