@@ -51,7 +51,7 @@ export class Wayfinder extends EventTarget {
     bounds: Bounds,
     angle?: number | null,
     tilt?: number | null,
-    animate?: boolean
+    animate?: boolean,
   ): Promise<void>;
 
   /** Clears and removes any active route */
@@ -80,7 +80,7 @@ export class Wayfinder extends EventTarget {
   getFloorBounds(
     floorId: Floor["id"],
     type?: 0 | 1 | 2 | 3,
-    leg?: number
+    leg?: number,
   ): Bounds | null;
 
   /** Boolean indicating whether the database data has finished loading. */
@@ -139,10 +139,10 @@ export class Wayfinder extends EventTarget {
   routeBetween(
     startId: Node["id"],
     endIds: Node["id"][],
-    useDDA: 0 | 1
+    useDDA: 0 | 1,
   ): Promise<{
-    status: any; //TODO: What type?
-    waypoints: any[]; //TODO: What type?
+    status: RouteStatus;
+    waypoints: RouteWaypoint[];
   }>;
 
   /**
@@ -163,7 +163,7 @@ export class Wayfinder extends EventTarget {
   showFloor(
     floorId: Floor["id"],
     animate?: boolean,
-    waitForLoad?: boolean
+    waitForLoad?: boolean,
   ): Promise<void>;
 
   /** Returns the current map size in pixels */
@@ -195,21 +195,60 @@ export class Wayfinder extends EventTarget {
   addEventListener<K extends keyof WayfinderEventMap>(
     type: K,
     listener: (this: Wayfinder, ev: WayfinderEventMap[K]) => any,
-    options?: boolean | AddEventListenerOptions
+    options?: boolean | AddEventListenerOptions,
   ): void;
   addEventListener(
     type: string,
     listener: EventListenerOrEventListenerObject,
-    options?: boolean | AddEventListenerOptions
+    options?: boolean | AddEventListenerOptions,
   ): void;
   removeEventListener<K extends keyof WayfinderEventMap>(
     type: K,
     listener: (this: Wayfinder, ev: WayfinderEventMap[K]) => any,
-    options?: boolean | EventListenerOptions
+    options?: boolean | EventListenerOptions,
   ): void;
   removeEventListener(
     type: string,
     listener: EventListenerOrEventListenerObject,
-    options?: boolean | EventListenerOptions
+    options?: boolean | EventListenerOptions,
   ): void;
 }
+
+type RouteStatus = {
+  delay: number;
+  /** Distance in meters */
+  distance: number;
+  dynamicData: 0 | 1; // TODO: Check if this is a boolean
+  price: number;
+  /** Time in seconds */
+  time: number;
+};
+
+type RouteWaypoint = {
+  floor: Floor;
+  nodes: {
+    leg: number;
+    type: {
+      button: Record<string, string>;
+      entry_icon: {
+        mode: number;
+        url: string;
+      };
+      exit_icon: {
+        mode: number;
+        url: string;
+      };
+      showline: 0 | 1;
+      text: [];
+      type: string;
+      id: string;
+    };
+    waypoint: {
+      floor_id: Floor["id"];
+      floorjoin_order: null; // TODO: What else?
+      id: number;
+      location_description: string | null;
+      position: Coordinates;
+    };
+  }[];
+};
