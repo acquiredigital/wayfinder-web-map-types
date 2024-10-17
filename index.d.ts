@@ -21,4 +21,4 @@ export * from "./types/database/Node";
 export * from "./types/database/TransitNodes";
 export * from "./types/database/TravelTypes";
 
-export as namespace Wayfinder;
+export as namespace WF;

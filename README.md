@@ -23,17 +23,17 @@ To make the types available in your project, add the packaged to the `types` fie
 }
 ```
 
-All types are exported under the 'Wayfinder' namespace. You can access them by prefixing a type with 'Wayfinder'.
+All types are exported under the 'WF' namespace. You can access them by prefixing a type with 'WF'.
 
 ## Examples
 
 ```ts
-const destination: Wayfinder.Destination =
+const destination: WF.Destination =
   window.wayfinder.database.destinations.asArray[0];
 ```
 
 ```ts
-function getAmenityName(amenity: Wayfinder.Amenity): string {
+function getAmenityName(amenity: WF.Amenity): string {
   const amenityTypes = window.wayfinder.database.amenityTypes.asMap;
   const amenityType = amenityTypes[amenity.type];
   //      ^? const amenityType: AmenityType
