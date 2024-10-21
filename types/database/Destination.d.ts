@@ -25,7 +25,7 @@ export type OpeningHour = Readonly<{
   /** A Textual description of the day */
   text: string;
   /** If this entry is valid or not */
-  value: number;
+  value: 0 | 1;
   /** Text containing the opening hour in HH:mm format */
   oh: string;
   /** text containing the closing hour in HH:mm format */
