@@ -5,7 +5,7 @@
   "types": "index.d.ts",
   "scripts": {
     "build": "tsc",
-    "format": "prettier -w types/**/*.ts index.d.ts"
+    "format": "prettier -w types/**/*.ts index.d.ts global.d.ts"
   },
   "repository": {
     "type": "git",
