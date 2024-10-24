@@ -22,3 +22,6 @@ export * from "./types/database/TransitNodes";
 export * from "./types/database/TravelTypes";
 
 export as namespace WF;
+
+// Wayfinder adds stuff to `window`
+import "./types/global";
