@@ -6,6 +6,8 @@ import type { Coordinates } from "./utils";
  * @link https://doc.clickup.com/2561453/d/h/2e5dd-10408/789ef7bcbcc6c38/2e5dd-19388
  */
 export class Bounds {
+  constructor();
+
   /** Returns a compatiable `THREE.Box3` object */
   get box3(): Box3 | null;
 
