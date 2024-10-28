@@ -27,7 +27,7 @@ type TransitPopupsSettings = {
   shadowAlpha: number;
 };
 
-type IconSettings = {
+export type IconSettings = {
   /** Default scale factor to use for the normal size of the icons */
   scale: number;
   /** Minimum scale allowed while zooming  */
@@ -46,7 +46,7 @@ type IconSettings = {
   overlapMargin: number;
 };
 
-type LabelSettings = {
+export type LabelSettings = {
   /** font details */
   style: {
     /** CSS name of the font */
