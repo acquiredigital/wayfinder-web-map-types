@@ -89,7 +89,8 @@ export interface Destination {
   readonly label: LabelOptions;
   /** A textual description of the surroundings near this destination. */
   readonly location_description: string;
-  /** Additional information about the specific instance of a destination. */
+  /** Additional information about the specific instance of a destination.
+   * @deprecated This content is now part of {@link description} */
   readonly local_description?: string;
   /** A URL with the logo for this destination, this will be a colour logo. */
   readonly logo: string;
