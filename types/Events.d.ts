@@ -83,7 +83,7 @@ export interface WayfinderEventMap {
   }>;
 
   mousedown: MouseCustomEvent;
-  mousemove: MouseCustomEvent;
+  mousemove: MouseCustomEvent | CustomEvent<null>;
   mouseup: MouseCustomEvent;
   mousewheel: MouseCustomEvent;
 
