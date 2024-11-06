@@ -83,8 +83,7 @@ export interface WayfinderEventMap {
   }>;
 
   mousedown: MouseCustomEvent;
-  /** `details` will be `null` when dragging */
-  mousemove: MouseCustomEvent | CustomEvent<null>;
+  mousemove: MouseCustomEvent;
   mouseup: MouseCustomEvent;
   mousewheel: MouseCustomEvent;
 
