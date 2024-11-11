@@ -19,13 +19,13 @@ export class Wayfinder extends EventTarget {
   static BuildDate: string;
 
   /** Integer value to use with the {@link getFloorBounds()} function */
-  static BoundaryTypeFloorActiveArea: 0;
+  static get BoundaryTypeFloorActiveArea(): 0;
   /** Integer value to use with the {@link getFloorBounds()} function */
-  static BoundaryTypeFloorArea: 1;
+  static get BoundaryTypeFloorArea(): 1;
   /** Integer value to use with the {@link getFloorBounds()} function */
-  static BoundaryTypeEntireRoute: 2;
+  static get BoundaryTypeEntireRoute(): 2;
   /** Integer value to use with the {@link getFloorBounds()} function */
-  static BoundaryTypeRouteLeg: 3;
+  static get BoundaryTypeRouteLeg(): 3;
 
   /** Converts multiple types of colour input into a standard object containing `r`, `g`, `b` and a properties that have a range between 0 and 255. */
   static GetRGB(color: string): RGBA;
@@ -180,7 +180,7 @@ export class Wayfinder extends EventTarget {
    * Zooms the map in or out.
    * @param delta A negative value causes zoom out by 10%. A positive value causes zoom in by 10%.
    */
-  zoomBy(delta: number): void;
+  public zoomBy(delta: number): void;
 
   /**
    * The current zoom level of the map.
