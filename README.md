@@ -5,10 +5,14 @@ This repository includes definition files for the Wayfinder Web Map 2.0 API. JsD
 
 ## Installation
 
-The package is not currently published to NPM. However, you can install it directly from the GitHub repoitory by adding the following line to your dependencies in package.json:
+The package is available on NPM. Add it to your dev dependencies.
 
-```json
-"wayfinder-web-map-types": "github:acquiredigital/wayfinder-web-map-types"
+```sh
+# npm
+npm install --save-dev @acquireweb/wayfinder-web-map-types
+
+# pnpm
+pnpm add -D @acquireweb/wayfinder-web-map-types
 ```
 
 ## Usage
@@ -18,7 +22,7 @@ To make the types available in your project, add the packaged to the `types` fie
 ```json
 {
   "compilerOptions": {
-    "types": ["wayfinder-web-map-types"]
+    "types": ["@acquireweb/wayfinder-web-map-types"]
   }
 }
 ```
