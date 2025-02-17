@@ -106,9 +106,19 @@ export interface WayfinderEventMap {
   /** A route line has been drawn on the map between two points */
   routedrawn: CustomEvent<{
     /** Route information */
-    status: unknown; //TODO: what type?
+    status: {
+      delay: number;
+      distance: number;
+      dynamicData: number;
+      price: number;
+      time: number;
+    };
     /** Array of waypoints information, split by floor */
-    waypoints: unknown[]; //TODO: what type?
+    waypoints: {
+      waypoint: number;
+      leg: number;
+      type: string;
+    }[];
   }>;
   /** Route generation request failed */
   routefailed: CustomEvent<string>;
