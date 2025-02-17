@@ -114,5 +114,5 @@ export interface WayfinderEventMap {
   routefailed: CustomEvent<string>;
 
   /** Mapapp URL parameters have been parsed */
-  mapapp: MapApp;
+  mapapp: CustomEvent<MapApp>;
 }
