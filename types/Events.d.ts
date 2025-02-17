@@ -36,6 +36,20 @@ type TransitPopup = {
   travelType: TravelType;
 };
 
+type MapApp = {
+  unitId: number;
+  ddaMode: boolean;
+  startNodeId: number;
+  startNode: Node | null;
+  endNodeId: number;
+  endNode: Node | null;
+  destinationId: number;
+  destination: Destination | null;
+  amenityId: number;
+  amenity: Amenity | null;
+  kioskSessionId: number;
+};
+
 /**
  * You can subscribe to a variety of events that the wayfinder can generate allowing you to fully integrate with its actions.
  * @link https://doc.clickup.com/2561453/d/h/2e5dd-10408/789ef7bcbcc6c38/2e5dd-19328
@@ -98,4 +112,7 @@ export interface WayfinderEventMap {
   }>;
   /** Route generation request failed */
   routefailed: CustomEvent<string>;
+
+  /** Mapapp URL parameters have been parsed */
+  mapapp: MapApp;
 }
