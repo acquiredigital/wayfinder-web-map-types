@@ -142,7 +142,7 @@ type LightingSettings = {
 
 /**
  * Contains all of the current settings used by the wayfinder.
- * The only property that you can activly change while loaded is the language.
+ * The only property that you can actively change while loaded is the language.
  * @link https://doc.clickup.com/2561453/d/h/2e5dd-10408/789ef7bcbcc6c38/2e5dd-19408
  */
 export class Settings {
@@ -169,6 +169,9 @@ export class Settings {
   /** The current language being used by the wayfinder */
   get language(): string;
   set language(value: string);
+
+  /** Whether mapUrls (the wfmap.gz files from the CDN) are loaded  */
+  get loadMapUrls(): boolean;
 
   /** Lighting rules for the 3D render */
   get mapLighting(): LightingSettings;
@@ -252,6 +255,8 @@ export type SettingsInput = null | Partial<{
   scaleChangeTime: number;
   /** Default language to pick when showing floor change navigation prompts */
   language: string;
+  /** Enable or disable loading map URLs. */
+  loadMapUrls: boolean;
   /** Override the map ID to show first (and priortise loading first) */
   startFloorId: Floor["id"];
   /** background behind the map */
