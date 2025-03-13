@@ -1,29 +1,45 @@
 import type { DatabaseBase } from "./types/database/Base";
+import type { Wayfinder } from "./types/Wayfinder";
+import type { AmenitiesDatabase } from "./types/database/Amenities";
+import type { AmenityTypesDatabase } from "./types/database/AmenityTypes";
+import type { Bounds } from "./types/Bounds";
+import type { BuildingDatabase } from "./types/database/Building";
+import type { DestinationCategoryDatabase } from "./types/database/DestinationCategory";
+import type { DestinationDatabase } from "./types/database/Destination";
+import type { FloorDatabase } from "./types/database/Floor";
+import type { MeshLinksDatabase } from "./types/database/MeshLinks";
+import type { NodesDatabase } from "./types/database/Node";
+import type { Overlay } from "./types/Overlay";
+import type { TransitNodesDatabase } from "./types/database/TransitNodes";
+import type { TravelTypesDatabase } from "./types/database/TravelTypes";
+import type { WayfinderEventTarget } from "./types/Events";
+import type { Settings } from "./types/Settings";
+import type { Database } from "./types/Database";
 
 declare global {
   interface Window {
     ACQ: any; // WayfinderCompatibilityAdapter
     WF: any; // WayfinderCompatibilityAdapter
-    Wayfinder: WF.Wayfinder;
+    Wayfinder: Wayfinder;
     Wayfinder3DModel: any; // Wayfinder3DModel
-    WayfinderAmenitiesDatabase: WF.AmenitiesDatabase;
-    WayfinderAmenityTypesDatabase: WF.AmenityTypesDatabase;
-    WayfinderBounds: WF.Bounds;
-    WayfinderBuildingDatabase: WF.BuildingDatabase;
+    WayfinderAmenitiesDatabase: AmenitiesDatabase;
+    WayfinderAmenityTypesDatabase: AmenityTypesDatabase;
+    WayfinderBounds: Bounds;
+    WayfinderBuildingDatabase: BuildingDatabase;
     WayfinderCompatibilityDestinationAdapter: any; // WayfinderCompatibilityDestinationAdapter
     WayfinderCompatibilityMapAdapter: any; // WayfinderCompatibilityMapAdapter
-    WayfinderDatabase: WF.Database;
+    WayfinderDatabase: Database;
     WayfinderDatabaseBase: DatabaseBase<any>;
-    WayfinderDestinationCategoryDatabase: WF.DestinationCategoryDatabase;
-    WayfinderDestinationDatabase: WF.DestinationDatabase;
-    WayfinderEventTarget: WF.WayfinderEventTarget;
-    WayfinderFloorDatabase: WF.FloorDatabase;
-    WayfinderMeshLinksDatabase: WF.MeshLinksDatabase;
-    WayfinderNodesDatabase: WF.NodesDatabase;
-    WayfinderOverlay: WF.Overlay;
+    WayfinderDestinationCategoryDatabase: DestinationCategoryDatabase;
+    WayfinderDestinationDatabase: DestinationDatabase;
+    WayfinderEventTarget: WayfinderEventTarget;
+    WayfinderFloorDatabase: FloorDatabase;
+    WayfinderMeshLinksDatabase: MeshLinksDatabase;
+    WayfinderNodesDatabase: NodesDatabase;
+    WayfinderOverlay: Overlay;
     WayfinderRouteGenerator: any; // WayfinderRouteGenerator
-    WayfinderSettings: WF.Settings;
-    WayfinderTransitNodesDatabase: WF.TransitNodesDatabase;
-    WayfinderTravelTypesDatabase: WF.TravelTypesDatabase;
+    WayfinderSettings: Settings;
+    WayfinderTransitNodesDatabase: TransitNodesDatabase;
+    WayfinderTravelTypesDatabase: TravelTypesDatabase;
   }
 }
