@@ -4,13 +4,13 @@ import type { Floor } from "./database/Floor";
 import type { Bounds } from "./Bounds";
 import type { Node } from "./database/Node";
 import type { Settings, SettingsInput } from "./Settings";
-import type { WayfinderEventMap } from "./Events";
+import type { WayfinderEventTarget } from "./Events";
 
 /**
  * Wayfinder class
  * @link https://doc.clickup.com/2561453/d/h/2e5dd-10408/789ef7bcbcc6c38/2e5dd-19368
  */
-export class Wayfinder extends EventTarget {
+export class Wayfinder extends WayfinderEventTarget {
   constructor(rootDIV: HTMLElement, settings?: SettingsInput);
 
   /** A string with the current version */
@@ -190,28 +190,6 @@ export class Wayfinder extends EventTarget {
    */
   get zoomLevel(): number;
   set zoomLevel(value: number);
-
-  // The Wayfinder class exposes the usual addEventListener, and removeEventListener so that you can subscribe to events at the ‘root’ level.
-  addEventListener<K extends keyof WayfinderEventMap>(
-    type: K,
-    listener: (this: Wayfinder, ev: WayfinderEventMap[K]) => any,
-    options?: boolean | AddEventListenerOptions,
-  ): void;
-  addEventListener(
-    type: string,
-    listener: EventListenerOrEventListenerObject,
-    options?: boolean | AddEventListenerOptions,
-  ): void;
-  removeEventListener<K extends keyof WayfinderEventMap>(
-    type: K,
-    listener: (this: Wayfinder, ev: WayfinderEventMap[K]) => any,
-    options?: boolean | EventListenerOptions,
-  ): void;
-  removeEventListener(
-    type: string,
-    listener: EventListenerOrEventListenerObject,
-    options?: boolean | EventListenerOptions,
-  ): void;
 }
 
 type RouteStatus = {

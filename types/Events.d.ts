@@ -7,6 +7,7 @@ import type { Overlay } from "./Overlay";
 import type { Intersection } from "three";
 import type { Node } from "./database/Node";
 import type { TravelType } from "./database/TravelTypes";
+import type { Wayfinder } from "./Wayfinder";
 
 /** Triggered when the mouse goes down, moved, lifted up or wheeled on the map */
 type MouseCustomEvent = CustomEvent<{
@@ -125,4 +126,28 @@ export interface WayfinderEventMap {
 
   /** Mapapp URL parameters have been parsed */
   mapapp: CustomEvent<MapApp>;
+}
+
+export class WayfinderEventTarget extends EventTarget {
+  // The Wayfinder class exposes the usual addEventListener, and removeEventListener so that you can subscribe to events at the ‘root’ level.
+  addEventListener<K extends keyof WayfinderEventMap>(
+    type: K,
+    listener: (this: Wayfinder, ev: WayfinderEventMap[K]) => any,
+    options?: boolean | AddEventListenerOptions,
+  ): void;
+  addEventListener(
+    type: string,
+    listener: EventListenerOrEventListenerObject,
+    options?: boolean | AddEventListenerOptions,
+  ): void;
+  removeEventListener<K extends keyof WayfinderEventMap>(
+    type: K,
+    listener: (this: Wayfinder, ev: WayfinderEventMap[K]) => any,
+    options?: boolean | EventListenerOptions,
+  ): void;
+  removeEventListener(
+    type: string,
+    listener: EventListenerOrEventListenerObject,
+    options?: boolean | EventListenerOptions,
+  ): void;
 }

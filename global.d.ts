@@ -16,7 +16,7 @@ declare global {
     WayfinderDatabaseBase: DatabaseBase<any>;
     WayfinderDestinationCategoryDatabase: WF.DestinationCategoryDatabase;
     WayfinderDestinationDatabase: WF.DestinationDatabase;
-    WayfinderEventTarget: any; // TODO: WayfinderEventTarget;
+    WayfinderEventTarget: WF.WayfinderEventTarget;
     WayfinderFloorDatabase: WF.FloorDatabase;
     WayfinderMeshLinksDatabase: WF.MeshLinksDatabase;
     WayfinderNodesDatabase: WF.NodesDatabase;
