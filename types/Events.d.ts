@@ -36,6 +36,20 @@ type TransitPopup = {
   travelType: TravelType;
 };
 
+type MapApp = {
+  unitId: number;
+  ddaMode: boolean;
+  startNodeId: number;
+  startNode: Node | null;
+  endNodeId: number;
+  endNode: Node | null;
+  destinationId: number;
+  destination: Destination | null;
+  amenityId: number;
+  amenity: Amenity | null;
+  kioskSessionId: number;
+};
+
 /**
  * You can subscribe to a variety of events that the wayfinder can generate allowing you to fully integrate with its actions.
  * @link https://doc.clickup.com/2561453/d/h/2e5dd-10408/789ef7bcbcc6c38/2e5dd-19328
@@ -92,10 +106,23 @@ export interface WayfinderEventMap {
   /** A route line has been drawn on the map between two points */
   routedrawn: CustomEvent<{
     /** Route information */
-    status: unknown; //TODO: what type?
+    status: {
+      delay: number;
+      distance: number;
+      dynamicData: number;
+      price: number;
+      time: number;
+    };
     /** Array of waypoints information, split by floor */
-    waypoints: unknown[]; //TODO: what type?
+    waypoints: {
+      waypoint: number;
+      leg: number;
+      type: string;
+    }[];
   }>;
   /** Route generation request failed */
   routefailed: CustomEvent<string>;
+
+  /** Mapapp URL parameters have been parsed */
+  mapapp: CustomEvent<MapApp>;
 }
