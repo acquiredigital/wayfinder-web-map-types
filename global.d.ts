@@ -20,26 +20,26 @@ declare global {
   interface Window {
     ACQ: any; // WayfinderCompatibilityAdapter
     WF: any; // WayfinderCompatibilityAdapter
-    Wayfinder: Wayfinder;
+    Wayfinder: typeof Wayfinder;
     Wayfinder3DModel: any; // Wayfinder3DModel
-    WayfinderAmenitiesDatabase: AmenitiesDatabase;
-    WayfinderAmenityTypesDatabase: AmenityTypesDatabase;
-    WayfinderBounds: Bounds;
-    WayfinderBuildingDatabase: BuildingDatabase;
+    WayfinderAmenitiesDatabase: typeof AmenitiesDatabase;
+    WayfinderAmenityTypesDatabase: typeof AmenityTypesDatabase;
+    WayfinderBounds: typeof Bounds;
+    WayfinderBuildingDatabase: typeof BuildingDatabase;
     WayfinderCompatibilityDestinationAdapter: any; // WayfinderCompatibilityDestinationAdapter
     WayfinderCompatibilityMapAdapter: any; // WayfinderCompatibilityMapAdapter
-    WayfinderDatabase: Database;
-    WayfinderDatabaseBase: DatabaseBase<any>;
-    WayfinderDestinationCategoryDatabase: DestinationCategoryDatabase;
-    WayfinderDestinationDatabase: DestinationDatabase;
-    WayfinderEventTarget: WayfinderEventTarget;
-    WayfinderFloorDatabase: FloorDatabase;
-    WayfinderMeshLinksDatabase: MeshLinksDatabase;
-    WayfinderNodesDatabase: NodesDatabase;
-    WayfinderOverlay: Overlay;
+    WayfinderDatabase: typeof Database;
+    WayfinderDatabaseBase: typeof DatabaseBase<any>;
+    WayfinderDestinationCategoryDatabase: typeof DestinationCategoryDatabase;
+    WayfinderDestinationDatabase: typeof DestinationDatabase;
+    WayfinderEventTarget: typeof WayfinderEventTarget;
+    WayfinderFloorDatabase: typeof FloorDatabase;
+    WayfinderMeshLinksDatabase: typeof MeshLinksDatabase;
+    WayfinderNodesDatabase: typeof NodesDatabase;
+    WayfinderOverlay: typeof Overlay;
     WayfinderRouteGenerator: any; // WayfinderRouteGenerator
-    WayfinderSettings: Settings;
-    WayfinderTransitNodesDatabase: TransitNodesDatabase;
-    WayfinderTravelTypesDatabase: TravelTypesDatabase;
+    WayfinderSettings: typeof Settings;
+    WayfinderTransitNodesDatabase: typeof TransitNodesDatabase;
+    WayfinderTravelTypesDatabase: typeof TravelTypesDatabase;
   }
 }
