@@ -7,6 +7,7 @@ import type { Overlay } from "./Overlay";
 import type { Intersection } from "three";
 import type { Node } from "./database/Node";
 import type { TravelType } from "./database/TravelTypes";
+import type { Wayfinder } from "./Wayfinder";
 
 /** Triggered when the mouse goes down, moved, lifted up or wheeled on the map */
 type MouseCustomEvent = CustomEvent<{
@@ -34,6 +35,20 @@ type TransitPopup = {
   targetMapId: Floor["id"];
   text: string;
   travelType: TravelType;
+};
+
+type MapApp = {
+  unitId: number;
+  ddaMode: boolean;
+  startNodeId: number;
+  startNode: Node | null;
+  endNodeId: number;
+  endNode: Node | null;
+  destinationId: number;
+  destination: Destination | null;
+  amenityId: number;
+  amenity: Amenity | null;
+  kioskSessionId: number;
 };
 
 /**
@@ -92,10 +107,47 @@ export interface WayfinderEventMap {
   /** A route line has been drawn on the map between two points */
   routedrawn: CustomEvent<{
     /** Route information */
-    status: unknown; //TODO: what type?
+    status: {
+      delay: number;
+      distance: number;
+      dynamicData: number;
+      price: number;
+      time: number;
+    };
     /** Array of waypoints information, split by floor */
-    waypoints: unknown[]; //TODO: what type?
+    waypoints: {
+      waypoint: number;
+      leg: number;
+      type: string;
+    }[];
   }>;
   /** Route generation request failed */
   routefailed: CustomEvent<string>;
+
+  /** Mapapp URL parameters have been parsed */
+  mapapp: CustomEvent<MapApp>;
+}
+
+export class WayfinderEventTarget extends EventTarget {
+  // The Wayfinder class exposes the usual addEventListener, and removeEventListener so that you can subscribe to events at the ‘root’ level.
+  addEventListener<K extends keyof WayfinderEventMap>(
+    type: K,
+    listener: (this: Wayfinder, ev: WayfinderEventMap[K]) => any,
+    options?: boolean | AddEventListenerOptions,
+  ): void;
+  addEventListener(
+    type: string,
+    listener: EventListenerOrEventListenerObject,
+    options?: boolean | AddEventListenerOptions,
+  ): void;
+  removeEventListener<K extends keyof WayfinderEventMap>(
+    type: K,
+    listener: (this: Wayfinder, ev: WayfinderEventMap[K]) => any,
+    options?: boolean | EventListenerOptions,
+  ): void;
+  removeEventListener(
+    type: string,
+    listener: EventListenerOrEventListenerObject,
+    options?: boolean | EventListenerOptions,
+  ): void;
 }

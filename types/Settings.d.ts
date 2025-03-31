@@ -171,7 +171,7 @@ export class Settings {
   set language(value: string);
 
   /** Whether mapUrls (the wfmap.gz files from the CDN) are loaded  */
-  get loadMapUrls(): string;
+  get loadMapUrls(): boolean;
 
   /** Lighting rules for the 3D render */
   get mapLighting(): LightingSettings;
