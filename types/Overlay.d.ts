@@ -24,7 +24,13 @@ export class Overlay {
     main: WF.Wayfinder,
     settings: LabelSettings | null,
     data: Destination | Amenity | TravelTypeIcon | null,
-    overlayType: 0 | 1 | 2 | 3 | 4 | 5,
+    overlayType:
+      | typeof Overlay.OverlayTypeFlagship
+      | typeof Overlay.OverlayTypeMap
+      | typeof Overlay.OverlayTypeHUD
+      | typeof Overlay.OverlayTypeAmenity
+      | typeof Overlay.OverlayTypeTransit
+      | typeof Overlay.OverlayTypeTransitPopup,
     relatedMesh: DestinationMesh | null,
     amenitySettings: IconSettings | null,
     inFrontOfFloatingLabels: boolean,
@@ -69,7 +75,10 @@ export class FloorChangeCallout {
   };
 
   /** Return the last alignment rendered */
-  get alignment(): 0 | 1 | 2;
+  get alignment():
+    | typeof FloorChangeCallout.TickAlignLeft
+    | typeof FloorChangeCallout.TickAlignCenter
+    | typeof FloorChangeCallout.TickAlignRight;
 
   get hitBox(): {
     x: number;

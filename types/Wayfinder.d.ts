@@ -79,7 +79,11 @@ export class Wayfinder extends WayfinderEventTarget {
    */
   getFloorBounds(
     floorId: Floor["id"],
-    type?: 0 | 1 | 2 | 3,
+    type?:
+      | typeof Wayfinder.BoundaryTypeFloorActiveArea
+      | typeof Wayfinder.BoundaryTypeFloorArea
+      | typeof Wayfinder.BoundaryTypeEntireRoute
+      | typeof Wayfinder.BoundaryTypeRouteLeg,
     leg?: number,
   ): Bounds | null;
 

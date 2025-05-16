@@ -16,7 +16,10 @@ type SpecialTags = string;
 
 interface TravelTypeIcon {
   /** One of the TravelType properties. */
-  readonly mode: 0 | 1 | 2;
+  readonly mode:
+    | typeof TravelTypesDatabase.TravelTypeAlwaysHide
+    | typeof TravelTypesDatabase.TravelTypeAlwaysShow
+    | typeof TravelTypesDatabase.TravelTypeOnlyRouteShow;
   /** The URL of the travel/transit icon */
   readonly url: string;
 }

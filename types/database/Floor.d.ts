@@ -19,7 +19,11 @@ export interface Floor {
   /** The short name for this floor/map. */
   readonly shortname: string;
   /** Status of the map, one of the Status values. */
-  readonly status: 0 | 1 | 2 | 3;
+  readonly status:
+    | typeof FloorDatabase.StatusNotLoaded
+    | typeof FloorDatabase.StatusLoading
+    | typeof FloorDatabase.StatusLoadError
+    | typeof FloorDatabase.StatusLoadReady;
   /** An array of map geometry URLs that are decoded to actually 3D render the map.  */
   readonly url: string[];
 }
