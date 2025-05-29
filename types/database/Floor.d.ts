@@ -1,6 +1,7 @@
 import type { DatabaseBase } from "./Base";
 import type { Building, BuildingDatabase } from "./Building";
 import type { Bounds } from "../Bounds";
+import type { Coordinates } from "../utils";
 
 /** @link https://app.clickup.com/2561453/v/dc/2e5dd-10408/2e5dd-19628 */
 export interface Floor {
@@ -26,6 +27,8 @@ export interface Floor {
     | typeof FloorDatabase.StatusLoadReady;
   /** An array of map geometry URLs that are decoded to actually 3D render the map.  */
   readonly url: string[];
+  /** The pre-calculated min and max bounds of the map geometry as well as any nodes and destinations.  */
+  readonly bounds: { min: Coordinates; max: Coordinates };
 }
 
 /**
@@ -46,6 +49,12 @@ export class FloorDatabase extends DatabaseBase<Floor> {
   getFloorStatus(floorId: number): null | Floor["status"];
   /** Returns a {@link Bounds} object containing the bounding box/cube for the specified map, or `null` if the map was not found. */
   getFloorBounds(floorId: Floor["id"]): Bounds | null;
+  /** Returns a {@link Bounds}  object containing the bounds of the map geometry, destinations and nodes for a floor, or `null` if the floor does not exist */
+  getFloorActiveArea(floorId: Floor["id"]): Bounds | null;
+  /** Calculates the average size of destinations on a given floor or `null` if the floor does not exist or has no destinations.  */
+  getFloorAverageDestinationSize(
+    floorId: Floor["id"],
+  ): { total: number; sum: Coordinates } | null;
   /** Returns an instance of {@link FloorDatabase} that only contains the maps that exist within the specified building ID. */
   inBuilding(buildingId: Building["id"]): FloorDatabase;
 }
