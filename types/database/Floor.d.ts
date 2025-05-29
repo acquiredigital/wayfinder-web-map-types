@@ -28,7 +28,9 @@ export interface Floor {
   /** An array of map geometry URLs that are decoded to actually 3D render the map.  */
   readonly url: string[];
   /** The pre-calculated min and max bounds of the map geometry as well as any nodes and destinations.  */
-  readonly bounds: { min: Coordinates; max: Coordinates };
+  readonly bounds?: { min: Coordinates; max: Coordinates } | null;
+  /** If defined, switching to the floor should focus the map on this position */
+  readonly startingPosition?: Coordinates | null;
 }
 
 /**
