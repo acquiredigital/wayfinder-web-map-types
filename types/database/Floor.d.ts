@@ -30,7 +30,7 @@ export interface Floor {
   /** The pre-calculated min and max bounds of the map geometry as well as any nodes and destinations.  */
   readonly bounds?: { min: Coordinates; max: Coordinates } | null;
   /** If defined, switching to the floor should focus the map on this position */
-  readonly startingPosition?: Coordinates | null;
+  readonly starting_position?: Coordinates | null;
 }
 
 /**
