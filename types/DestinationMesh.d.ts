@@ -37,7 +37,7 @@ export class DestinationMesh {
   ): void;
 
   /** Change the currently active colour */
-  setCurrentColor(col: Color, timeInMilliseconds): void;
+  setCurrentColor(col: Color, timeInMilliseconds: number): void;
 
   /** Returns the {@link Bounds} of the mesh */
   get bounds(): Bounds;
