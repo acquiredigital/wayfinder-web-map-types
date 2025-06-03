@@ -13,7 +13,7 @@ export class DestinationMesh {
     material: Material,
     geometry: BufferGeometry, // TODO: Is this the correct type?
     meshName: string,
-    castShadow: boolean
+    castShadow: boolean,
   );
 
   get activeColor(): Color;
@@ -25,15 +25,15 @@ export class DestinationMesh {
 
   fadeToActive(
     timeTakeinInMS: number,
-    destinationId: Destination["id"] | null
+    destinationId: Destination["id"] | null,
   ): void;
   fadeToHover(
     timeTakeinInMS: number,
-    destinationId: Destination["id"] | null
+    destinationId: Destination["id"] | null,
   ): void;
   fadeToDefault(
     timeTakeinInMS: number,
-    destinationId: Destination["id"] | null
+    destinationId: Destination["id"] | null,
   ): void;
 
   /** Change the currently active colour */
