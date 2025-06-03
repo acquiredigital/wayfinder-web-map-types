@@ -27,8 +27,12 @@ export interface Floor {
     | typeof FloorDatabase.StatusLoadReady;
   /** An array of map geometry URLs that are decoded to actually 3D render the map.  */
   readonly url: string[];
-  /** The pre-calculated min and max bounds of the map geometry as well as any nodes and destinations.  */
+  /** The pre-calculated min and max bounds of the map geometry only.  */
   readonly bounds?: { min: Coordinates; max: Coordinates } | null;
+  /** The pre-calculated min and max bounds of the Nodes and Destinations. */
+  readonly active_area_bounds?: { min: Coordinates; max: Coordinates } | null;
+  /** The average size of all the destinatation meshes on the floor. */
+  readonly avg_destination_size?: { total: number; sum: Coordinates } | null;
   /** If defined, switching to the floor should focus the map on this position */
   readonly starting_position?: Coordinates | null;
 }
