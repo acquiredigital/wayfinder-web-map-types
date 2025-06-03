@@ -6,9 +6,9 @@ export type RGBA = { r: number; g: number; b: number; a: number };
  * These can be `null`.
  */
 export interface Colors {
-  normal: string | null;
-  active: string | null;
-  selected: string | null;
+  normal: RGB | null;
+  active: RGB | null;
+  selected: RGB | null;
 }
 
 export interface Coordinates {
@@ -16,4 +16,3 @@ export interface Coordinates {
   y: number;
   z: number;
 }
-

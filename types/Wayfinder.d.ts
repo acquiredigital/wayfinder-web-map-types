@@ -28,9 +28,9 @@ export class Wayfinder extends WayfinderEventTarget {
   static get BoundaryTypeRouteLeg(): 3;
 
   /** Converts multiple types of colour input into a standard object containing `r`, `g`, `b` and a properties that have a range between 0 and 255. */
-  static GetRGB(color: string): RGBA;
+  static GetRGB(color: HEX): RGBA;
   /** Converts an object with properties `r`, `g` and `b`, into hex notatation suitable for use with CSS. */
-  static RGB2Hex({ r, g, b }: RGB): string;
+  static RGB2Hex({ r, g, b }: RGB): HEX;
   /** Converts a url of the form wayfinderstorager.blob.core.windows.net to cdn.wayfinder.acquiredigital.com */
   static ToCDN(url: string): string;
 
