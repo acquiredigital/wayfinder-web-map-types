@@ -6,6 +6,21 @@ type BackgroundSettings = {
   url: string;
 };
 
+type LatLong = {
+  start: {
+    x: number;
+    y: number;
+    latitude: number;
+    longitude: number;
+  };
+  end: {
+    x: number;
+    y: number;
+    latitude: number;
+    longitude: number;
+  };
+};
+
 type TransitPopupsSettings = {
   font: {
     fontName: string;
@@ -90,6 +105,21 @@ export type LabelSettings = {
       shadowDistance: number;
     };
   };
+};
+
+type MapMarkerSettings = {
+  /** The URL of the start icon */
+  start: string;
+  /** The URL of the end icon */
+  end: string;
+  /** The URL of the 'You Are Here' icon */
+  yah: string;
+  align: "TOP" | "BOTTOM";
+  scale: number;
+  minSize: number;
+  maxSize: number;
+  /** Vertical height of the marker */
+  yPosition: number;
 };
 
 type DestinationsSettings = {
@@ -223,6 +253,8 @@ export class Settings {
 
   /** If lower quality (less resource intensive) methods should be used. */
   get useLowerQuality(): boolean;
+
+  get latlong(): LatLong;
 }
 
 export type SettingsInput = null | Partial<{
@@ -273,4 +305,6 @@ export type SettingsInput = null | Partial<{
   routeLine: Partial<RouteLineSettings>;
   /** map lighting controls */
   lighting: Partial<LightingSettings>;
+  /** map marker options */
+  markers: Partial<MapMarkerSettings>;
 }>;

@@ -194,6 +194,11 @@ export class Wayfinder extends WayfinderEventTarget {
    */
   get zoomLevel(): number;
   set zoomLevel(value: number);
+
+  /** Whether location services are enabled or not */
+  get showCurrentLocation(): boolean;
+  /** Enable / Disable location services */
+  set showCurrentLocation(value: boolean);
 }
 
 type RouteStatus = {

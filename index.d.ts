@@ -7,6 +7,7 @@ export type * from "./types/Database";
 export type * from "./types/DestinationMesh";
 export type * from "./types/Events";
 export type * from "./types/Overlay";
+export type * from "./types/Location";
 export type { Settings } from "./types/Settings";
 
 // Database exports
