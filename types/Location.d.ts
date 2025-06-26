@@ -40,7 +40,13 @@ export class WayfinderLocation {
   /**
    * Convert a Lat/Long pair to X/Y map coordinates
    * @param {GeolocationCoordinates} gps - The GPS coordinates to convert.
-   * @returns {?THREE.Vector2} point - The converted map coordinates, or null if the GPS point is out of bounds.
+   * @returns {?Vector2} point - The converted map coordinates, or null if the GPS point is out of bounds.
    * */
   gpsToMap(gps: GeolocationCoordinates): Vector2 | null;
+
+  /**
+   * Get the current map coordinates based on the last known GPS position.
+   * @returns {?Vector2} The current map coordinates, or null if there is no last position.
+   */
+  get currentMapCoordinates(): Vector2 | null;
 }
