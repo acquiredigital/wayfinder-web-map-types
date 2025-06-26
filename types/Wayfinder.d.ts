@@ -5,6 +5,7 @@ import type { Bounds } from "./Bounds";
 import type { Node } from "./database/Node";
 import type { Settings, SettingsInput } from "./Settings";
 import type { WayfinderEventTarget } from "./Events";
+import type { WayfinderLocation } from "./Location";
 
 /**
  * Wayfinder class
@@ -194,6 +195,9 @@ export class Wayfinder extends WayfinderEventTarget {
    */
   get zoomLevel(): number;
   set zoomLevel(value: number);
+
+  /** Access to the location service */
+  get locationService(): WayfinderLocation;
 
   /** Whether location services are enabled or not */
   get showCurrentLocation(): boolean;
