@@ -4,7 +4,7 @@ import type { Destination } from "./database/Destination";
 import type { MeshLink } from "./database/MeshLinks";
 import type { TransitNode } from "./database/TransitNodes";
 import type { Overlay } from "./Overlay";
-import type { Intersection } from "three";
+import type { Intersection, Vector2 } from "three";
 import type { Node } from "./database/Node";
 import type { TravelType } from "./database/TravelTypes";
 import type { Wayfinder } from "./Wayfinder";
@@ -49,6 +49,13 @@ type MapApp = {
   amenityId: number;
   amenity: Amenity | null;
   kioskSessionId: number;
+};
+
+type LocationUpdate = {
+  timestamp: number;
+  inBounds: boolean;
+  mapPoint: Vector2 | null;
+  gpsPoint: GeolocationCoordinates | null;
 };
 
 /**
@@ -126,6 +133,9 @@ export interface WayfinderEventMap {
 
   /** Mapapp URL parameters have been parsed */
   mapapp: CustomEvent<MapApp>;
+
+  /** Location has been updated */
+  locationupdated: CustomEvent<LocationUpdate>;
 }
 
 export class WayfinderEventTarget extends EventTarget {
