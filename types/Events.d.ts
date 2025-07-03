@@ -137,27 +137,3 @@ export interface WayfinderEventMap {
   /** Location has been updated */
   locationupdated: CustomEvent<LocationUpdate>;
 }
-
-export class WayfinderEventTarget extends EventTarget {
-  // The Wayfinder class exposes the usual addEventListener, and removeEventListener so that you can subscribe to events at the ‘root’ level.
-  addEventListener<K extends keyof WayfinderEventMap>(
-    type: K,
-    listener: (this: Wayfinder, ev: WayfinderEventMap[K]) => any,
-    options?: boolean | AddEventListenerOptions,
-  ): void;
-  addEventListener(
-    type: string,
-    listener: EventListenerOrEventListenerObject,
-    options?: boolean | AddEventListenerOptions,
-  ): void;
-  removeEventListener<K extends keyof WayfinderEventMap>(
-    type: K,
-    listener: (this: Wayfinder, ev: WayfinderEventMap[K]) => any,
-    options?: boolean | EventListenerOptions,
-  ): void;
-  removeEventListener(
-    type: string,
-    listener: EventListenerOrEventListenerObject,
-    options?: boolean | EventListenerOptions,
-  ): void;
-}

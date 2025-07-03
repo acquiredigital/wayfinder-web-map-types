@@ -13,7 +13,6 @@ import type { Overlay } from "./types/Overlay";
 import type { WayfinderLocation } from "./types/Location";
 import type { TransitNodesDatabase } from "./types/database/TransitNodes";
 import type { TravelTypesDatabase } from "./types/database/TravelTypes";
-import type { WayfinderEventTarget } from "./types/Events";
 import type { Settings } from "./types/Settings";
 import type { Database } from "./types/Database";
 
@@ -33,7 +32,6 @@ declare global {
     WayfinderDatabaseBase: typeof DatabaseBase<any>;
     WayfinderDestinationCategoryDatabase: typeof DestinationCategoryDatabase;
     WayfinderDestinationDatabase: typeof DestinationDatabase;
-    WayfinderEventTarget: typeof WayfinderEventTarget;
     WayfinderFloorDatabase: typeof FloorDatabase;
     WayfinderLocation: typeof WayfinderLocation;
     WayfinderMeshLinksDatabase: typeof MeshLinksDatabase;

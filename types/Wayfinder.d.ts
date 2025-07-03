@@ -4,14 +4,13 @@ import type { Floor } from "./database/Floor";
 import type { Bounds } from "./Bounds";
 import type { Node } from "./database/Node";
 import type { Settings, SettingsInput } from "./Settings";
-import type { WayfinderEventTarget } from "./Events";
 import type { WayfinderLocation } from "./Location";
 
 /**
  * Wayfinder class
  * @link https://doc.clickup.com/2561453/d/h/2e5dd-10408/789ef7bcbcc6c38/2e5dd-19368
  */
-export class Wayfinder extends WayfinderEventTarget {
+export class Wayfinder extends EventTarget {
   constructor(rootDIV: HTMLElement, settings?: SettingsInput);
 
   /** A string with the current version */
