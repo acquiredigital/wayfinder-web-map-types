@@ -12,7 +12,7 @@ import type { DatabaseBase } from "./Base";
  * | }      | The short name of the map/floor the route is travelling **to** |
  * | ~      | The name of the building being travelled **to/from** |
  */
-type SpecialTags = string;
+type SpecialTags = Record<string, string>;
 
 interface TravelTypeIcon {
   /** One of the TravelType properties. */
