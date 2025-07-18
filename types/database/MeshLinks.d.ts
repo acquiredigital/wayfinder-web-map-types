@@ -24,5 +24,5 @@ export class MeshLinksDatabase extends DatabaseBase<MeshLink> {
   /**
    * Searches through the mappings to find a specific `meshName` on the specified `floorId`, and returns the `ID` of the floor you should display, or `null` if no mapping was found.
    */
-  meshLink(floorId: Floor["id"], mesh: string): MeshLink | null;
+  meshLink(floorId: Floor["id"], mesh: string): Floor["id"] | null;
 }
