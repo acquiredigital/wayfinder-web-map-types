@@ -2,6 +2,7 @@ import type { Floor } from "./Floor";
 import type { Node } from "./Node";
 import type { DatabaseBase } from "./Base";
 import type { AmenityType } from "./AmenityTypes";
+import type { Overlay } from "../Overlay";
 
 /** @link https://app.clickup.com/2561453/v/dc/2e5dd-10408/2e5dd-19528 */
 export interface Amenity {
@@ -26,7 +27,7 @@ export interface Amenity {
    * Provides direct access to the instance of the actual overlay.
    * See {@link Overlay}
    */
-  readonly overlay: any; // TODO: overlay?
+  readonly overlay: Overlay;
   /**
    * Causes the map to pan so that this amenity is in the center.
    * If animate is true then the map will smoothly animate into the new position.
