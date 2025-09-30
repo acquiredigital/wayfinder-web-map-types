@@ -1,4 +1,5 @@
 import type { Vector2 } from "three";
+import type { Overlay } from "./Overlay";
 
 export class WayfinderLocation {
   /** Whether location services are enabled or not */
@@ -49,4 +50,7 @@ export class WayfinderLocation {
    * @returns {?Vector2} The current map coordinates, or null if there is no last position.
    */
   get currentMapCoordinates(): Vector2 | null;
+
+  /** Get the 'You Are Here' marker instance */
+  get marker(): Overlay;
 }
