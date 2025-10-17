@@ -255,6 +255,8 @@ export class Settings {
   get useLowerQuality(): boolean;
 
   get latlong(): LatLong;
+
+  get ui(): null | UISettingsInput;
 }
 
 export type SettingsInput = null | Partial<{
@@ -308,3 +310,44 @@ export type SettingsInput = null | Partial<{
   /** map marker options */
   markers: Partial<MapMarkerSettings>;
 }>;
+
+/**
+ * Extracted from Web Map UI
+ * @see https://github.com/acquiredigital/wayfinder-web-map-ui/blob/54848e24c49bbc082bf38c88cf65f8f285311794/src/stores/settings.ts#L10
+ */
+type UISettingsInput =
+  | {
+      features?:
+        | {
+            floorSelector?: boolean | null | undefined;
+            zoomControls?: boolean | null | undefined;
+            currentLocation?: boolean | null | undefined;
+            routing?: boolean | null | undefined;
+            routingInfo?: boolean | null | undefined;
+            search?: boolean | null | undefined;
+            categories?: boolean | null | undefined;
+            amenities?: boolean | null | undefined;
+            suggestions?: boolean | null | undefined;
+          }
+        | null
+        | undefined;
+      behaviour?:
+        | {
+            zoomToDestination: boolean | null | undefined;
+            showEmptyCategories: boolean | null | undefined;
+            floorNamePreference: "long" | "short" | null | undefined;
+            alwaysShowFloors: boolean;
+            openingHoursPreference: "long" | "short" | null | undefined;
+            enableLinks: boolean | null | undefined;
+            soonDuration: number | null | undefined;
+            maxCategoriesTags: number | null | undefined;
+            dragHidesInfo: boolean | null | undefined;
+            zoomOnInitialLoad: boolean | null | undefined;
+            distanceUnits: "meters" | "yards" | null | undefined;
+            timeFormat: "12h" | "24h" | null | undefined;
+          }
+        | null
+        | undefined;
+    }
+  | null
+  | undefined;
