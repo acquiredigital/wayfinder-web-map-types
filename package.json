@@ -1,6 +1,6 @@
 {
   "name": "@acquireweb/wayfinder-web-map-types",
-  "version": "2.6.0",
+  "version": "2.7.0",
   "description": "Type defintions for the Wayfinder Web Map API",
   "types": "index.d.ts",
   "scripts": {
